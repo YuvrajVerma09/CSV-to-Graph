@@ -44,6 +44,7 @@ with open('ladder.csv', 'r') as csvfile:
     #makes sure everything is in the right format    
 
     
+#coordinates for the game grid and axis
 x_axis_x=[-1800,1800]
 x_axis_y=[0,0]
 y_axis_y=[-1800,1800]
@@ -57,9 +58,13 @@ xy_grid5=[1200,1200]
 xy_grid6=[1800,1800]
 xy_grid7=[1500,1500]
 xy_grid8=[-1500,-1500]
+
+#main Axis
 plt.style.use('dark_background')
 plt.plot(x_axis_x, x_axis_y, color='white')
 plt.plot(y_axis_x, y_axis_y, color='white')
+
+#game grid
 plt.plot(xy_grid, y_grid, color='white', linestyle='dashed')
 plt.plot(xy_grid2, y_grid, color='white', linestyle='dashed')
 plt.plot(xy_grid3, y_grid, color='white', linestyle='dashed')
@@ -72,6 +77,8 @@ plt.plot(y_grid, xy_grid3, color='white', linestyle='dashed')
 plt.plot(y_grid, xy_grid4, color='white', linestyle='dashed')
 plt.plot(y_grid, xy_grid5, color='white', linestyle='dashed')
 plt.plot(y_grid, xy_grid6, color='white', linestyle='dashed')
+
+#starting lines
 plt.plot(xy_grid7,y_grid , color='white', linestyle='solid', linewidth=0.5)
 plt.plot(xy_grid8, y_grid, color='white', linestyle='solid', linewidth=0.5)
 
