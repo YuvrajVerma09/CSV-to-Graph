@@ -1,32 +1,85 @@
 import csv
 from matplotlib import pyplot as plt
-with open('datapoints.csv', 'r') as csvfile:
+with open('redrings.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
     data = list(reader)
     # Skip the header row
-    data = data[0:10]
+    data = data[0:]
     # Convert the data to a list of lists of floats    
     data = [[int(x) for x in row] for row in data]
     for i, row in enumerate(data):
-        if i == 0:  # 0-based index, so 2 means the 3rd row
-            x_values=row
-        if i == 1:  # 0-based index, so 2 means the 3rd row
-            y_values=row
+        if i == 0: 
+            x_values_red=row
+        if i == 1: 
+            y_values_red=row
         
     #makes sure everything is in the right format    
-    print(x_values)
-    print(y_values)
+with open('bluerings.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    data = list(reader)
+    # Skip the header row
+    data = data[0:]
+    # Convert the data to a list of lists of floats    
+    data = [[int(x) for x in row] for row in data]
+    for i, row in enumerate(data):
+        if i == 0: 
+            x_values_blue=row
+        if i == 1: 
+            y_values_blue=row
+        
+    #makes sure everything is in the right format    
+with open('ladder.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    data = list(reader)
+    # Skip the header row
+    data = data[0:]
+    # Convert the data to a list of lists of floats    
+    data = [[int(x) for x in row] for row in data]
+    for i, row in enumerate(data):
+        if i == 0: 
+            x_values_ladder=row
+        if i == 1: 
+            y_values_ladder=row
+        
+    #makes sure everything is in the right format    
+
     
-x_axis_x=[-10,10]
+x_axis_x=[-1800,1800]
 x_axis_y=[0,0]
-y_axis_y=[-100,100]
+y_axis_y=[-1800,1800]
 y_axis_x=[0,0]
-plt.plot(x_axis_x, x_axis_y)
-plt.plot(y_axis_x, y_axis_y)
+y_grid=[-1800,1800]
+xy_grid=[-1800,-1800]
+xy_grid2=[-1200,-1200]
+xy_grid3=[-600,-600]
+xy_grid4=[600,600]
+xy_grid5=[1200,1200]
+xy_grid6=[1800,1800]
+xy_grid7=[1500,1500]
+xy_grid8=[-1500,-1500]
+plt.style.use('dark_background')
+plt.plot(x_axis_x, x_axis_y, color='white')
+plt.plot(y_axis_x, y_axis_y, color='white')
+plt.plot(xy_grid, y_grid, color='white', linestyle='dashed')
+plt.plot(xy_grid2, y_grid, color='white', linestyle='dashed')
+plt.plot(xy_grid3, y_grid, color='white', linestyle='dashed')
+plt.plot(xy_grid4, y_grid, color='white', linestyle='dashed')
+plt.plot(xy_grid5, y_grid, color='white', linestyle='dashed')
+plt.plot(xy_grid6, y_grid, color='white', linestyle='dashed')
+plt.plot(y_grid, xy_grid, color='white', linestyle='dashed')
+plt.plot(y_grid, xy_grid2, color='white', linestyle='dashed')
+plt.plot(y_grid, xy_grid3, color='white', linestyle='dashed')
+plt.plot(y_grid, xy_grid4, color='white', linestyle='dashed')
+plt.plot(y_grid, xy_grid5, color='white', linestyle='dashed')
+plt.plot(y_grid, xy_grid6, color='white', linestyle='dashed')
+plt.plot(xy_grid7,y_grid , color='white', linestyle='solid', linewidth=0.5)
+plt.plot(xy_grid8, y_grid, color='white', linestyle='solid', linewidth=0.5)
 
-plt.plot(x_values, y_values, marker='o', linestyle='-')
+plt.scatter(x_values_red, y_values_red, marker='o', color='red', s=80)
+plt.scatter(x_values_blue, y_values_blue, marker='o', color='blue', s=80)
+plt.plot(x_values_ladder, y_values_ladder, color='Green', linewidth=5)
+plt.xticks(range(-1800, 1801, 600))
+plt.yticks(range(-1800, 1801, 600))
 print("done")
+
 plt.show()
-    
-
-
