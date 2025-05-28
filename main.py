@@ -1,6 +1,6 @@
 import csv
 from matplotlib import pyplot as plt
-with open('redrings.csv', 'r') as csvfile:
+with open('High_Stakes/redrings.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
     data = list(reader)
     # Skip the header row
@@ -14,7 +14,7 @@ with open('redrings.csv', 'r') as csvfile:
             y_values_red=row
         
     #makes sure everything is in the right format    
-with open('bluerings.csv', 'r') as csvfile:
+with open('High_Stakes/bluerings.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
     data = list(reader)
     # Skip the header row
@@ -28,7 +28,7 @@ with open('bluerings.csv', 'r') as csvfile:
             y_values_blue=row
         
     #makes sure everything is in the right format    
-with open('ladder.csv', 'r') as csvfile:
+with open('High_Stakes/ladder.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
     data = list(reader)
     # Skip the header row
