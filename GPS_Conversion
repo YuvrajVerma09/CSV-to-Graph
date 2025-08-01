@@ -1,0 +1,32 @@
+import csv
+from tkinter import *
+from tkinter import filedialog
+
+# Open file dialog to choose JSON file
+filepath = filedialog.askopenfilename(
+    initialdir="/Volumes/500GB/Robotics/Graphical Interfaces/Movement_Co-ordinate_checking_algorithm",
+    title="Open file okay?",
+    filetypes=(("CSV files", "*.csv"), ("All files", "*.*"))
+)
+filepath2 = filedialog.askopenfilename(
+    initialdir="/Volumes/500GB/Robotics/Graphical Interfaces/Movement_Co-ordinate_checking_algorithm",
+    title="Open file okay?",
+    filetypes=(("CSV files", "*.csv"), ("All files", "*.*"))
+)
+# Read the input CSV with two columns
+with open(filepath, 'r') as infile:
+    reader = csv.reader(infile)
+    x_values = []
+    y_values = []
+    for row in reader:
+        if len(row) >= 2:
+            x_values.append(row[0])
+            y_values.append(row[1])
+
+# Write the output as two rows
+with open(filepath2, 'w', newline='') as outfile:
+    writer = csv.writer(outfile)
+    writer.writerow(x_values)
+    writer.writerow(y_values)
+
+print("Conversion complete. Output saved as 'converted_to_rows.csv'.")
