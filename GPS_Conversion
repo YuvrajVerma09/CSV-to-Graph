@@ -5,12 +5,12 @@ from tkinter import filedialog
 # Open file dialog to choose JSON file
 filepath = filedialog.askopenfilename(
     initialdir="/Volumes/500GB/Robotics/Graphical Interfaces/Movement_Co-ordinate_checking_algorithm",
-    title="Open file okay?",
+    title="Choose Source File?",
     filetypes=(("CSV files", "*.csv"), ("All files", "*.*"))
 )
 filepath2 = filedialog.askopenfilename(
     initialdir="/Volumes/500GB/Robotics/Graphical Interfaces/Movement_Co-ordinate_checking_algorithm",
-    title="Open file okay?",
+    title="Choose location file?",
     filetypes=(("CSV files", "*.csv"), ("All files", "*.*"))
 )
 # Read the input CSV with two columns

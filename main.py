@@ -1,5 +1,17 @@
 import csv
 from matplotlib import pyplot as plt
+with open('datapoints.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    data = list(reader)
+    # Skip the header row
+    data = data[0:]
+    # Convert the data to a list of lists of floats    
+    data = [[int(x) for x in row] for row in data]
+    for i, row in enumerate(data):
+        if i == 0: 
+            x_values_bot=row
+        if i == 1: 
+            y_values_bot=row
 with open('Push_Back/redblocks.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
     data = list(reader)
@@ -99,6 +111,7 @@ plt.scatter(x_values_red, y_values_red, marker='o', color='red', s=60 )
 plt.scatter(x_values_blue, y_values_blue, marker='o', color='blue', s=60)
 plt.plot(x_values_low_goal, y_values_low_goal, color='Yellow', linewidth=5)
 plt.plot(x_values_high_goal, y_values_high_goal, color='Yellow', linewidth=5)
+plt.plot(x_values_bot, y_values_bot, color='Green', linewidth=5)
 plt.xticks(range(-1800, 1801, 600))
 plt.yticks(range(-1800, 1801, 600))
 print("done")
